@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import PopupButton from './PopupButton';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [email, setEmail] = useState("not set!");
+  const [email, setEmail] = useState('not set!');
 
   useEffect(() => {
     // waiting the ZOHODESK extension loading using it
     ZOHODESK.extension.onload().then(() => {
       setLoading(false);
-      ZOHODESK.get("ticket.email").then((data) => {
-        setEmail(data["ticket.email"]);
+      ZOHODESK.get('ticket.email').then((data) => {
+        setEmail(data['ticket.email']);
       });
 
       /*	
@@ -63,7 +64,24 @@ const App = () => {
     return (
       <>
         <h2>React Powered!</h2>
-        <p role="content">Email: {email}</p>
+        <p>Email: {email}</p>
+        <PopupButton
+          title="Alert Button"
+          content="This is an Alert Botton"
+          type="alert"
+          contentType={'html'}
+          color="red"
+          okText="OK"
+        />
+        <PopupButton
+          title="Confirmation Button"
+          content="This is a Confirmation Button"
+          type="confirmation"
+          contentType={'html'}
+          color="blue"
+          okText="Carry On"
+          cancelText="Stop"
+        />
       </>
     );
   }
