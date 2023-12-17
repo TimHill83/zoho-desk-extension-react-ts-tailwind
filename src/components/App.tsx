@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import PopupButton from './PopupButton';
+import { RenderObject } from './RenderObject';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('not set!');
+  const [ticket, setTicket] = useState({});
 
   useEffect(() => {
     // waiting the ZOHODESK extension loading using it
@@ -11,6 +13,9 @@ const App = () => {
       setLoading(false);
       ZOHODESK.get('ticket.email').then((data) => {
         setEmail(data['ticket.email']);
+      });
+      ZOHODESK.get('ticket').then((data) => {
+        setTicket(data['ticket']);
       });
 
       /*	
@@ -58,6 +63,39 @@ const App = () => {
     });
   });
 
+  const setTicketComment = () => {
+    console.log('setTicketComment');
+    //To Set data in Desk UI Client
+    ZOHODESK.set('ticket.comment', { comment: 'Test comment' })
+      .then(function (res) {
+        //response Handling
+      })
+      .catch(function (err) {
+        //error Handling
+      });
+  };
+
+  const setTicketReply = () => {
+    console.log('setTicketReply');
+    ZOHODESK.invoke('INSERT', 'ticket.replyEditor', {
+      value: 'ABC Sample Content 456'
+      //type: 'replace'
+    });
+    //To Set data in Desk UI Client
+    // ZOHODESK.set('ticket.reply', {
+    //   //value: '<h1>Hello</h1><p>THis is an HTML Reply</p>',
+    //   reply: 'This is a plain text reply'
+    //   //type: 'replace'
+    // })
+    //   .then(function (res) {
+    //     console.log('success', res); //response Handling
+    //   })
+    //   .catch(function (err) {
+    //     //error Handling
+    //     console.log('fail', err);
+    //   });
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   } else {
@@ -82,6 +120,9 @@ const App = () => {
           okText="Carry On"
           cancelText="Stop"
         />
+        <button onClick={setTicketComment}>Set Ticket Comment</button>
+        <button onClick={setTicketReply}>Set Ticket Reply</button>
+        <RenderObject objectToRender={ticket} title="Ticket" />
       </>
     );
   }
