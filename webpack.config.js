@@ -3,12 +3,15 @@ let path = require('path');
 let projectRootDir = process.cwd();
 let sourceFolder = 'src';
 let outputFolder = 'app';
-let outputFileName = 'extension.js';
 
 module.exports = (mode = 'production') => ({
-  entry: path.join(projectRootDir, sourceFolder, 'index.tsx'),
+  //entry: path.join(projectRootDir, sourceFolder, 'index.tsx'),
+  entry: {
+    main: path.join(projectRootDir, sourceFolder, 'index.tsx'),
+    modal: path.join(projectRootDir, sourceFolder, 'modal.tsx')
+  },
   output: {
-    filename: 'js/' + outputFileName,
+    filename: 'js/[name].js',
     chunkFilename: 'js/[name].js',
     path: path.join(projectRootDir, outputFolder),
     publicPath: './'
