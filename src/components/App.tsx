@@ -6,10 +6,11 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('not set!');
   const [ticket, setTicket] = useState({});
+  const [app, setApp] = useState<any>(null);
 
   useEffect(() => {
     // waiting the ZOHODESK extension loading using it
-    ZOHODESK.extension.onload().then(() => {
+    ZOHODESK.extension.onload().then((App: any) => {
       setLoading(false);
       ZOHODESK.get('ticket.email').then((data) => {
         setEmail(data['ticket.email']);
@@ -17,6 +18,7 @@ const App = () => {
       ZOHODESK.get('ticket').then((data) => {
         setTicket(data['ticket']);
       });
+      setApp(App);
 
       /*	
 					//To Set data in Desk UI Client
@@ -82,6 +84,7 @@ const App = () => {
         '<div style="border: 1px solid #cccccc; border-radius:5px; padding:5px;"><h1 style="font-size: 24px">Here is some HTML Formatted Content</h1><p style="font-size:16px">Here is a sub paragraph</p></div>',
       type: 'replace'
     });
+
     //To Set data in Desk UI Client
     // ZOHODESK.set('ticket.reply', {
     //   //value: '<h1>Hello</h1><p>THis is an HTML Reply</p>',
@@ -95,6 +98,25 @@ const App = () => {
     //     //error Handling
     //     console.log('fail', err);
     //   });
+  };
+
+  const openModal = () => {
+    if (!app?.instance) return;
+    app.instance
+      .modal({
+        url: '/app/modal.html',
+        title: 'Modal box'
+      })
+      .then(function (modalInfo: any) {
+        var modalInstance = app.instance.getWidgetInstance(modalInfo.widgetID);
+        modalInstance.on('modal.opened', function (data: any) {
+          console.log('modal opened ++++++++++++++++++');
+          console.log('modal instance data', modalInstance);
+        });
+      })
+      .catch(function (err: any) {
+        console.log(err, 'Modal error');
+      });
   };
 
   if (loading) {
@@ -122,6 +144,12 @@ const App = () => {
           okText="Carry On"
           cancelText="Stop"
         />
+        <button
+          className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
+          onClick={openModal}
+        >
+          Open a Modal
+        </button>
         <button
           className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
           onClick={setTicketComment}
