@@ -1,5 +1,7 @@
 {
-  "locale": ["en"],
+  "locale": [
+    "en"
+  ],
   "service": "DESK",
   "storage": false,
   "type": "personal",
@@ -9,7 +11,7 @@
       {
         "location": "desk.ticket.detail.rightpanel",
         "url": "/app/widget.html",
-        "name": "Desk Extension",
+        "name": "React/Tailwind Desk Extension Sample",
         "logo": "/app/img/logo.png",
         "icon": "/app/img/icon.png"
       }
