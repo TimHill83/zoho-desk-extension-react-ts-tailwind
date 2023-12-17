@@ -18,7 +18,7 @@ declare const ZOHODESK: {
   invoke: (
     //Note: This was done using AI and may not be accurate or complete
     action: string,
-    target: string,
-    options: { value: string; type?: string }
+    target?: string,
+    options?: { value: string; type?: string }
   ) => void;
 };
