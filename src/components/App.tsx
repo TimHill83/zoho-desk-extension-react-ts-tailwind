@@ -78,8 +78,9 @@ const App = () => {
   const setTicketReply = () => {
     console.log('setTicketReply');
     ZOHODESK.invoke('INSERT', 'ticket.replyEditor', {
-      value: 'ABC Sample Content 456'
-      //type: 'replace'
+      value:
+        '<div style="border: 1px solid #cccccc; border-radius:5px; padding:5px;"><h1 style="font-size: 24px">Here is some HTML Formatted Content</h1><p style="font-size:16px">Here is a sub paragraph</p></div>',
+      type: 'replace'
     });
     //To Set data in Desk UI Client
     // ZOHODESK.set('ticket.reply', {
