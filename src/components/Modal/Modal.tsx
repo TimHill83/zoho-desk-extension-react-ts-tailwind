@@ -5,7 +5,7 @@ const Modal = () => {
     <div>
       <h2 className="text-2xl text-blue-600">Modal!</h2>
       <Button
-        color="blue"
+        color="red"
         onClick={() => {
           ZOHODESK.invoke('MODAL_CLOSE');
         }}

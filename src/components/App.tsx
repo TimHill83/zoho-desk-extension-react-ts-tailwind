@@ -151,12 +151,9 @@ const App = () => {
         <Button color="blue" onClick={setTicketComment}>
           Set Ticket Comment
         </Button>
-        <button
-          className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
-          onClick={setTicketReply}
-        >
+        <Button color="slate" onClick={setTicketReply}>
           Set Ticket Reply
-        </button>
+        </Button>
         <RenderObject objectToRender={ticket} title="Ticket" />
       </>
     );
