@@ -28,23 +28,6 @@ const PopupButton = (props: PopupButtonProps) => {
     );
   };
 
-  //   title: props.title,,
-  //   content: 'This is a Popup —check it out!',
-  //   type: 'alert',
-  //   contentType: 'html',
-  //   color: 'blue',
-  //   okText: 'proceed'
-  //cancelText: 'stop'
-  //     ).then(
-  //       (res) => {
-  //         console.log('success');
-  //       },
-  //       (err) => {
-  //         console.log('err');
-  //       }
-  //     );
-  //   };
-
   return (
     <div>
       <button

@@ -101,8 +101,9 @@ const App = () => {
   } else {
     return (
       <>
-        <h2 className="text-xl font-bold">React Powered!</h2>
-        <p>Email: {email}</p>
+        <h2 className="text-xl font-bold">
+          React Extension with Tailwind Samples
+        </h2>
         <PopupButton
           title="Alert Button"
           content="This is an Alert Botton"
