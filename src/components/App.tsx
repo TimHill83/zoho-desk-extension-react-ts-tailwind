@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PopupButton from './PopupButton';
 import { RenderObject } from './RenderObject';
+import { Button } from './Button';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -144,18 +145,12 @@ const App = () => {
           okText="Carry On"
           cancelText="Stop"
         />
-        <button
-          className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
-          onClick={openModal}
-        >
+        <Button color="blue" onClick={openModal}>
           Open a Modal
-        </button>
-        <button
-          className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
-          onClick={setTicketComment}
-        >
+        </Button>
+        <Button color="blue" onClick={setTicketComment}>
           Set Ticket Comment
-        </button>
+        </Button>
         <button
           className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
           onClick={setTicketReply}
