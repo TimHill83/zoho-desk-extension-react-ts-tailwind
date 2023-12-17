@@ -101,7 +101,7 @@ const App = () => {
   } else {
     return (
       <>
-        <h2>React Powered!</h2>
+        <h2 className="text-xl font-bold">React Powered!</h2>
         <p>Email: {email}</p>
         <PopupButton
           title="Alert Button"
@@ -120,8 +120,18 @@ const App = () => {
           okText="Carry On"
           cancelText="Stop"
         />
-        <button onClick={setTicketComment}>Set Ticket Comment</button>
-        <button onClick={setTicketReply}>Set Ticket Reply</button>
+        <button
+          className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
+          onClick={setTicketComment}
+        >
+          Set Ticket Comment
+        </button>
+        <button
+          className="inline-block m-1 bg-blue-600 text-white rounded p-1 hover:bg-blue-800"
+          onClick={setTicketReply}
+        >
+          Set Ticket Reply
+        </button>
         <RenderObject objectToRender={ticket} title="Ticket" />
       </>
     );

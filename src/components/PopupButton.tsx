@@ -47,7 +47,12 @@ const PopupButton = (props: PopupButtonProps) => {
 
   return (
     <div>
-      <button onClick={showPopup}>{props.title}</button>
+      <button
+        className="inline-block m-1 bg-emerald-600 text-white rounded p-1 hover:bg-emerald-800"
+        onClick={showPopup}
+      >
+        {props.title}
+      </button>
     </div>
   );
 };
