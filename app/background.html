@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal</title>
+  </head>
+  <body>
+    <script src="https://js.zohostatic.com/support/developer_sdk/v1/js/ZohoDeskClientSDK.min.js"></script>
+    <script>
+      // It probably doesn't make sense to both with React for Background Widgets as they don't render anything.
+      window.onload = function () {
+        console.log('background.js is running');
+
+        ZOHODESK.extension.onload().then(function (App) {
+          console.log('App', App);
+
+          App.instance.on('pageChange', function (data) {
+            console.log('Page Change Event Fired', data);
+          });
+          App.instance.on('ticket_Shift', function (data) {
+            //data gives the new owner details
+            ZOHODESK.get('ticket')
+              .then(function (ticket) {
+                console.log(ticket);
+                ZOHODESK.showpopup({
+                  title:
+                    'This custom popup is triggered by the background widget.',
+                  content:
+                    '<div><p>If you can read this, the ticket details have been fetched.</p><p style="font-weight:bold;">The ticket subject is ' +
+                    ticket.ticket.subject +
+                    '.</p></div>',
+                  type: 'alert',
+                  contentType: 'html',
+                  color: 'blue'
+                }).then(
+                  (res) => {
+                    console.log('success');
+                  },
+                  (err) => {
+                    console.log('Err');
+                  }
+                );
+              })
+              .then(
+                (res) => {
+                  console.log('success');
+                  ZOHODESK.invoke('ROUTE_TO', {
+                    entity: 'ticket',
+                    location: 'desk.ticket.detail.rightpanel', //invoke location
+                    name: 'react-tailwind' //name of the widget
+                  });
+                },
+                (err) => {
+                  console.log('Error getting ticket details');
+                }
+              );
+          });
+        });
+      };
+    </script>
+    <script>
+      setTimeout(function () {
+        //deferred onload
+      }, 3000);
+    </script>
+  </body>
+</html>
