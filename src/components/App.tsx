@@ -66,6 +66,14 @@ const App = () => {
     });
   });
 
+  useEffect(() => {
+    if (!app?.instance) return;
+    console.log('Adding Comment Listener');
+    app.instance.on('ticket_comment.add', function (data: any) {
+      console.log('ticket_comment.add', data);
+    });
+  }, [app?.instance]);
+
   const setTicketComment = () => {
     console.log('setTicketComment');
     //To Set data in Desk UI Client
