@@ -19,3 +19,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+Modifications made by Tim Hill
+
+The original Zoho Desk Extension template by Wiisdom has been extended to include the following modifications:
+
+- Experimentation with various features of Zoho Desk Extensions to understand their workings.
+- Addition of Tailwind for styling.
+
+These modifications are also licensed under the MIT license.
