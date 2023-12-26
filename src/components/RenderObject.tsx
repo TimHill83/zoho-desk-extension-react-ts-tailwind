@@ -1,3 +1,9 @@
+/**
+ * Renders an object as a Json string with an optional title.
+ * @param {Object} objectToRender - The object to be rendered.
+ * @param {string} [title] - The optional title for the rendered object.
+ * @returns {JSX.Element} - The rendered object.
+ */
 const RenderObject = ({
   objectToRender,
   title

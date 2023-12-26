@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import App from '../../src/components/App';
+import App from '../../src/components/AppWithoutContext';
 import { describe, it, expect, vi } from 'vitest';
 
 const ZohoDeskMock = {
