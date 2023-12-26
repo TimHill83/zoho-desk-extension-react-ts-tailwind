@@ -144,7 +144,8 @@ const App = () => {
           content="This is an Alert Botton"
           type="alert"
           contentType={'html'}
-          color="red"
+          color="emerald"
+          okButtonColor="blue"
           okText="OK"
         />
         <PopupButton
@@ -152,7 +153,8 @@ const App = () => {
           content="This is a Confirmation Button"
           type="confirmation"
           contentType={'html'}
-          color="blue"
+          color="emerald"
+          okButtonColor="blue"
           okText="Carry On"
           cancelText="Stop"
         />

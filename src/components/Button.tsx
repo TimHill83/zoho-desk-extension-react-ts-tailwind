@@ -1,6 +1,8 @@
+export type ButtonColor = 'emerald' | 'blue' | 'red' | 'slate';
+
 export type ButtonProps<T extends () => void> = {
   onClick: T;
-  color: 'emerald' | 'blue' | 'red' | 'slate';
+  color: ButtonColor;
   children?: React.ReactNode;
 };
 export function Button<T extends () => void>(props: ButtonProps<T>) {
@@ -26,7 +28,7 @@ export function Button<T extends () => void>(props: ButtonProps<T>) {
 
   return (
     <button
-      className={`inline-block m-1 text-white rounded p-1 ${buttonColorClass}`}
+      className={`inline-block  text-white rounded px-2 py-1 ${buttonColorClass}`}
       onClick={onClick}
     >
       {children}

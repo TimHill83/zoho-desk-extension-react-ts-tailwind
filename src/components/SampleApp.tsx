@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react';
 import PopupButton from './PopupButton';
 import { RenderObject } from './RenderObject';
 import { Button } from './Button';
-import { ZohoDeskProvider } from '../ZohoDeskContext/ZohoDeskProvider';
 import { useContext } from 'react';
 import { ZohoDeskContext } from '../ZohoDeskContext/ZohoDeskContext';
 
@@ -79,36 +78,41 @@ const SampleApp = () => {
   } else {
     return (
       <>
-        <h2 className="text-xl font-bold">
+        <h2 className="text-xl font-bold p-1 bg-blue-200 text-center">
           React Extension with Tailwind Samples
         </h2>
-        <PopupButton
-          title="Alert Button"
-          content="This is an Alert Botton"
-          type="alert"
-          contentType={'html'}
-          color="red"
-          okText="OK"
-        />
-        <PopupButton
-          title="Confirmation Button"
-          content="This is a Confirmation Button"
-          type="confirmation"
-          contentType={'html'}
-          color="blue"
-          okText="Carry On"
-          cancelText="Stop"
-        />
-        <Button color="blue" onClick={openModal}>
-          Open a Modal
-        </Button>
-        <Button color="blue" onClick={setTicketComment}>
-          Set Ticket Comment
-        </Button>
-        <Button color="slate" onClick={setTicketReply}>
-          Set Ticket Reply
-        </Button>
-        <RenderObject objectToRender={ticket} title="Ticket" />
+
+        <div className="flex flex-wrap gap-1 my-1">
+          <PopupButton
+            title="Alert Button"
+            content="This is an Alert Botton"
+            type="alert"
+            contentType={'html'}
+            color="emerald"
+            okButtonColor="red"
+            okText="OK"
+          />
+          <PopupButton
+            title="Confirmation Button"
+            content="This is a Confirmation Button"
+            type="confirmation"
+            contentType={'html'}
+            color="emerald"
+            okButtonColor="blue"
+            okText="Carry On"
+            cancelText="Stop"
+          />
+          <Button color="blue" onClick={openModal}>
+            Open a Modal
+          </Button>
+          <Button color="blue" onClick={setTicketComment}>
+            Set Ticket Comment
+          </Button>
+          <Button color="slate" onClick={setTicketReply}>
+            Set Ticket Reply
+          </Button>
+          <RenderObject objectToRender={ticket} title="Ticket" />
+        </div>
       </>
     );
   }

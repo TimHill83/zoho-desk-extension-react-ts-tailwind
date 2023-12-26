@@ -1,9 +1,12 @@
+import { Button, ButtonColor } from './Button';
+
 type PopupButtonProps = {
   title: string;
   content: string;
   type: 'alert' | 'confirmation';
   contentType: 'html';
-  color?: 'red' | 'blue';
+  color?: ButtonColor;
+  okButtonColor: 'red' | 'blue';
   okText?: string;
   cancelText?: string;
 };
@@ -14,7 +17,7 @@ const PopupButton = (props: PopupButtonProps) => {
       title: props.title,
       content: props.content,
       type: props.type,
-      color: props.color,
+      color: props.okButtonColor,
       okText: props.okText,
       cancelText: props.cancelText,
       contentType: 'html'
@@ -29,14 +32,9 @@ const PopupButton = (props: PopupButtonProps) => {
   };
 
   return (
-    <div>
-      <button
-        className="inline-block m-1 bg-emerald-600 text-white rounded p-1 hover:bg-emerald-800"
-        onClick={showPopup}
-      >
-        {props.title}
-      </button>
-    </div>
+    <Button color={props.color ?? 'blue'} onClick={showPopup}>
+      {props.title}
+    </Button>
   );
 };
 

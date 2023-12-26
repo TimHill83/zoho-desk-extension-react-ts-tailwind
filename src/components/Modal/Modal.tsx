@@ -24,7 +24,7 @@ const Modal = () => {
           content="This is an Alert Botton"
           type="alert"
           contentType={'html'}
-          color="red"
+          okButtonColor="red"
           okText="OK"
         />
       </ZohoDeskProvider>
