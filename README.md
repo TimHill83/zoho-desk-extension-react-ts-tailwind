@@ -14,7 +14,7 @@ I hope this is of use, if you find yourself in the same boat as me.
 
 You can follow the guide [here](https://www.zoho.com/desk/extensions/guide/test-extension.html), but in a nutshell:
 
-```
+```bash
 yarn # install deps
 zet run # run locally
 ```
@@ -25,8 +25,9 @@ And then be sure to activate the Developer mode on Zoho Desk side.
 
 ## How to pack the extension for a release?
 
-```
-zet pack
+```bash
+zet validate # validate before packing
+zet pack 
 ```
 
 ## Technical information
@@ -42,4 +43,4 @@ This template is available under the MIT license.
 
 ## Author
 
-- Tim Hill (following the work of Julien Bras at Wiisdom )
+- Tim Hill (following the work of Julien Bras at Wiiisdom )
