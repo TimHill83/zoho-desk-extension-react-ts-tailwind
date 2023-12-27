@@ -27,9 +27,9 @@ const SampleApp = () => {
 
   useEffect(() => {
     if (!instance) return;
-    console.log('Adding Comment Listener');
+    console.log('Sample Extension: Adding Comment Listener');
     instance.on('ticket_comment.add', function (data: any) {
-      console.log('ticket_comment.add', data);
+      console.log('Sample Extension: ticket_comment.add', data);
     });
   }, [instance]);
 
@@ -48,7 +48,7 @@ const SampleApp = () => {
   );
 
   const setTicketReply = useCallback(() => {
-    console.log('setTicketReply');
+    console.log('Sample Extension: setTicketReply');
     ZOHODESK.invoke('INSERT', 'ticket.replyEditor', {
       value:
         '<div style="border: 1px solid #cccccc; border-radius:5px; padding:5px;"><h1 style="font-size: 24px">Here is some HTML Formatted Content</h1><p style="font-size:16px">Here is a sub paragraph</p></div>',
@@ -65,8 +65,8 @@ const SampleApp = () => {
       });
       var modalInstance = instance.getWidgetInstance(modalInfo.widgetID);
       modalInstance.on('modal.opened', function (data: any) {
-        console.log('modal opened ++++++++++++++++++');
-        console.log('modal instance data', modalInstance);
+        console.log('Sample Extension: modal opened ++++++++++++++++++');
+        console.log('Sample Extension: modal instance data', modalInstance);
       });
     } catch (error) {
       // Handle error

@@ -46,9 +46,9 @@ const ShowAppDetails = () => {
     );
   }
 
-  console.log('app', app);
+  console.log('Sample Extension: app', app);
   app.instance.on('ticket_comment.add', function (data: any) {
-    console.log('ticket_comment.add', data);
+    console.log('Sample Extension: ticket_comment.add', data);
   });
 
   return (
