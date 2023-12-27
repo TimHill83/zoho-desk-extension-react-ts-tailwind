@@ -10,19 +10,19 @@
     <script>
       // It probably doesn't make sense to both with React for Background Widgets as they don't render anything.
       window.onload = function () {
-        console.log('background.js is running');
+        console.log('Sample Extension: background.js is running');
 
         ZOHODESK.extension.onload().then(function (App) {
-          console.log('App', App);
+          console.log('Sample Extension: App', App);
 
           App.instance.on('pageChange', function (data) {
-            console.log('Page Change Event Fired', data);
+            console.log('Sample Extension: Page Change Event Fired', data);
           });
           App.instance.on('ticket_Shift', function (data) {
             //data gives the new owner details
             ZOHODESK.get('ticket')
               .then(function (ticket) {
-                console.log(ticket);
+                console.log('Sample Extension:', ticket);
                 ZOHODESK.showpopup({
                   title:
                     'This custom popup is triggered by the background widget.',
@@ -35,16 +35,16 @@
                   color: 'blue'
                 }).then(
                   (res) => {
-                    console.log('success');
+                    console.log('Sample Extension: success');
                   },
                   (err) => {
-                    console.log('Err');
+                    console.log('Sample Extension: Err');
                   }
                 );
               })
               .then(
                 (res) => {
-                  console.log('success');
+                  console.log('Sample Extension: success');
                   ZOHODESK.invoke('ROUTE_TO', {
                     entity: 'ticket',
                     location: 'desk.ticket.detail.rightpanel', //invoke location
@@ -52,7 +52,7 @@
                   });
                 },
                 (err) => {
-                  console.log('Error getting ticket details');
+                  console.log('Sample Extension: Error getting ticket details');
                 }
               );
           });
