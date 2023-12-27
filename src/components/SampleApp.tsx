@@ -4,6 +4,7 @@ import { RenderObject } from './RenderObject';
 import { Button } from './Button';
 import { useContext } from 'react';
 import { ZohoDeskContext } from '../ZohoDeskContext/ZohoDeskContext';
+import { OpenLocationButton } from './OpenLocationButton/OpenLocationButton';
 
 const SampleApp = () => {
   const [ticket, setTicket] = useState({});
@@ -111,6 +112,25 @@ const SampleApp = () => {
           <Button color="slate" onClick={setTicketReply}>
             Set Ticket Reply
           </Button>
+          <OpenLocationButton
+            location={{
+              entity: 'extension',
+              location: 'desk.ticket.detail.lefttab',
+              name: 'Sample Left Tab Widget'
+            }}
+          >
+            Open Left Tab
+          </OpenLocationButton>
+          <OpenLocationButton
+            location={{
+              entity: 'extension',
+              location: 'desk.ticket.detail.rightpanel',
+              name: 'Sample Right Panel Widget'
+            }}
+            color="emerald"
+          >
+            Open Right Panel
+          </OpenLocationButton>
           <RenderObject objectToRender={ticket} title="Ticket" />
         </div>
       </>
