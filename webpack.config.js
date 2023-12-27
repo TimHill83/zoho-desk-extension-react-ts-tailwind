@@ -7,6 +7,7 @@ let outputFolder = 'app';
 module.exports = (mode = 'production') => ({
   //entry: path.join(projectRootDir, sourceFolder, 'index.tsx'),
   entry: {
+    background: './src/background.ts',
     main: path.join(projectRootDir, sourceFolder, 'index.tsx'),
     modal: path.join(projectRootDir, sourceFolder, 'modal.tsx')
   },

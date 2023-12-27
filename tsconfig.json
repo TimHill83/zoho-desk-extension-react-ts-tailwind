@@ -10,5 +10,5 @@
     "outDir": "dist",
     "moduleResolution": "node"
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "test/components/App.test.tsx"]
 }
