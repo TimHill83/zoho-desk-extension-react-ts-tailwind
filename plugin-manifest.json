@@ -11,14 +11,14 @@
       {
         "location": "desk.ticket.detail.rightpanel",
         "url": "/app/widget.html",
-        "name": "react-tailwind",
+        "name": "Sample Right Panel Widget",
         "logo": "/app/img/logo.png",
         "icon": "/app/img/icon.png"
       },
       {
         "location": "desk.ticket.detail.lefttab",
         "url": "/app/widget.html",
-        "name": "react-tailwind-lefttab",
+        "name": "Sample Left Tab Widget",
         "logo": "/app/img/logo.png",
         "icon": "/app/img/icon.png"
       },
