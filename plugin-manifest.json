@@ -16,6 +16,13 @@
         "icon": "/app/img/icon.png"
       },
       {
+        "location": "desk.ticket.detail.lefttab",
+        "url": "/app/widget.html",
+        "name": "react-tailwind-lefttab",
+        "logo": "/app/img/logo.png",
+        "icon": "/app/img/icon.png"
+      },
+      {
         "location": "desk.background",
         "url": "/app/background.html",
         "name": "Sample Background Widget"
